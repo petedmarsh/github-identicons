@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('mpApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['identiconUrl', '$scope', function (IdenticonUrl, $scope) {
 
     var randomIdenticonURL = function() {
       var randomUserId = Math.floor((Math.random() * 3 * 1000 * 1000) + 1).toString();
-      var userIdMD5 = SparkMD5.hash(randomUserId);
-      return 'https://identicons.github.com/' + userIdMD5 + '.png';
+      return IdenticonUrl.fromUserId(randomUserId);
     };
 
     $scope.identicons = [];
@@ -20,4 +19,4 @@ angular.module('mpApp')
       $scope.rows.push($scope.identicons.slice(sliceIndex, sliceIndex+5));
     }
 
-  });
+  }]);
