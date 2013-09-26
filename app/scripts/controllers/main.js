@@ -5,7 +5,7 @@ angular.module('mpApp')
 
     var randomIdenticonURL = function() {
       var randomUserId = Math.floor((Math.random() * 3 * 1000 * 1000) + 1).toString();
-      var userIdMD5 = window.SparkMD5.hash(randomUserId);
+      var userIdMD5 = SparkMD5.hash(randomUserId);
       return 'https://identicons.github.com/' + userIdMD5 + '.png';
     };
 
