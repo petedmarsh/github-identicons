@@ -7,6 +7,10 @@ angular.module('mpApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/organization/:organization', {
+        templateUrl: 'views/main.html',
+        controller: 'OrganizationCtrl'
+      })
       .otherwise({
         redirectTo: ''
       });
